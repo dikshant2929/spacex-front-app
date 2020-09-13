@@ -41,17 +41,13 @@ app.get('*', (req, res) => {
             comp.load().then(component => {
                 component.default.fetchData(req, function(data) {
                     console.log('Data Retrieved....');
-                    //Pass req headers at context
-
                     data.headers = req.headers;
                     data.headers.source = '';
-
                     const context = {};
 
                     const webExtractor = new ChunkExtractor({
                         statsFile: webStats,
                     });
-                    // const jsx = webExtractor.collectChunks(<DataProvider data={data} />)
 
                     const jsx = webExtractor.collectChunks(
                         <StaticRouter location={req.url} context={context}>
@@ -61,7 +57,6 @@ app.get('*', (req, res) => {
                     );
 
                     const html = renderToString(jsx);
-
                     // context.url will contain the URL to redirect to if a <Redirect> was used
                     if (context.url) {
                         res.writeHead(302, {

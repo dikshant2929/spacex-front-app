@@ -86,17 +86,7 @@
         "webpack-dev-middleware": "^2.0.4",
         "webpack-hot-middleware": "^2.18.0",
         "webpack-node-externals": "^2.5.0",
-        "axios": "^0.18.0",
-        "@loadable/babel-plugin": "^5.13.0",
-        "@loadable/webpack-plugin": "^5.13.0"
-    },
-    "devDependencies": {
-        "@babel/core": "^7.11.0",
-        "@babel/preset-env": "^7.11.0",
-        "@babel/preset-react": "^7.0.0",
         "@babel/template": "^7.10.4",
-        "@loadable/babel-plugin": "^5.13.0",
-        "@loadable/webpack-plugin": "^5.13.0",
         "axios": "^0.18.0",
         "babel-eslint": "^10.1.0",
         "babel-plugin-transform-object-rest-spread": "^6.26.0",

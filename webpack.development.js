@@ -1,16 +1,11 @@
 'use strict';
 
 const debug = process.env.NODE_ENV !== 'production';
-// const isModern = process.env.BROWSERSLIST_ENV === 'modern'
-//const debug = false;
 const webpack = require('webpack');
 const path = require('path');
 const ManifestPlugin = require('webpack-manifest-plugin');
-// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const LoadablePlugin = require('@loadable/webpack-plugin');
 const OptimizeJsPlugin = require('optimize-js-plugin');
-// const TerserPlugin = require('terser-webpack-plugin-legacy');
-//const ChunkManifestPlugin = require('chunk-manifest-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 
 const bundleDir = 'bundle';
@@ -27,13 +22,6 @@ const babelConfig = {
         '@loadable/babel-plugin',
     ],
 };
-// const babelConfig = {
-//     presets: ['react', "env"],
-//     "plugins": [
-//         "syntax-dynamic-import",
-//         "transform-object-rest-spread"
-//     ]
-// }
 
 const useCacheBabel = [
     {
@@ -60,7 +48,6 @@ const useCssLoader = [
         loader: 'file-loader',
         options: {
             name: '../../css/[name].[hash].css',
-            // depends on your project architecture
         },
     },
     {
@@ -78,10 +65,6 @@ module.exports = {
         'webpack-hot-middleware/client',
         path.join(__dirname, 'app', 'app-client.js'),
     ],
-    // externals: {
-    //     react: 'React',
-    //     'react-dom': 'ReactDOM',
-    // },
     output: {
         path: path.join(__dirname, 'dist', 'js-dev'),
         publicPath: '/js-dev/',
@@ -89,12 +72,10 @@ module.exports = {
         chunkFilename: `[name].chunk.js`,
     },
     plugins: [
-        //new LoadablePlugin(),
         new webpack.EnvironmentPlugin(['NODE_ENV']),
         new webpack.optimize.OccurrenceOrderPlugin(),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoEmitOnErrorsPlugin(),
-        // new BundleAnalyzerPlugin(),
     ],
     module: {
         rules: [
@@ -111,19 +92,11 @@ module.exports = {
         ],
     },
     resolve: {
-        /*root : [
-            path.resolve('./' + process.env.PRODUCT)
-        ],
-        fallback : [
-            path.resolve('./src')
-        ],*/
         extensions: ['.js', '.jsx', '.scss', '.css'],
         symlinks: false,
         cacheWithContext: false,
     },
     node: {
-        //This due to Module not found: Error: Can't resolve 'child_process' in Memcahced
-        //with reference http://www.programfaqs.com/faq/conditional-memcached-usage-in-isomorphic-application/
         net: 'empty',
         child_process: 'empty',
     },

@@ -40,7 +40,8 @@ out/
 
 # Dependency directories
 node_modules/
-dist/
+dist/bundle
+dist/css
 jspm_packages/
 package-lock.json
 .cache-loader/
