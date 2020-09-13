@@ -1,11 +1,14 @@
-import loadable from '@loadable/component'
+import loadable from '@loadable/component';
 
-const Home = loadable(() => import(/* webpackChunkName: 'HomeController' */ '../src/controllers/HomeController'));
-
+const Home = loadable(() =>
+    import(
+        /* webpackChunkName: 'HomeController' */ '../src/controllers/HomeController'
+    )
+);
 
 export const routes = [
     {
-        path: "/",        
+        path: '/',
         component: Home,
         // loadData: () => getSomeData()
     },
