@@ -29,7 +29,7 @@ const useCacheBabel = [
     },
     {
         loader: 'babel-loader',
-        options: babelConfig,
+        //options: babelConfig,
     },
 ];
 
@@ -131,11 +131,11 @@ module.exports =
                     include: path.resolve(__dirname),
                     use: useCacheBabel,
                 },
-                {
-                    test: /\.(sa|sc|c)ss$/,
-                    include: path.resolve(__dirname),
-                    use: useCssLoader,
-                },
+                // {
+                //     test: /\.(sa|sc|c)ss$/,
+                //     include: path.resolve(__dirname),
+                //     use: useCssLoader,
+                // },
             ],
         },
         resolve: {

@@ -19,7 +19,7 @@ module.exports = api => {
                     useBuiltIns: web ? 'entry' : undefined,
                     corejs: web ? 'core-js@3' : false,
                     //targets: !web ? { node: 'current' } : undefined,
-                    modules: webpack ? false : 'commonjs',
+                    //modules: webpack ? false : 'commonjs',
                     targets: {
                         browsers: ['>1%', 'ie 11', 'not op_mini all'],
                     },
@@ -38,6 +38,7 @@ module.exports = api => {
                     loose: true,
                 },
             ],
+            '@babel/plugin-transform-modules-commonjs',
         ],
     };
 };

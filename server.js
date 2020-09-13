@@ -3,7 +3,7 @@ import express from 'express';
 import React, { Component } from 'react';
 import { renderToString } from 'react-dom/server';
 import { ChunkExtractor } from '@loadable/server';
-import { matchPath, StaticRouter } from 'react-router';
+import { matchPath, StaticRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import fs from 'fs';
 import ejs from 'ejs';
