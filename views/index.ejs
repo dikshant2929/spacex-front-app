@@ -1,0 +1,12 @@
+    <body>
+
+        <div id="main"><%- html %></div>
+        <script> 
+            window.__INITIAL_STATE__ = <%- JSON.stringify(data) %>; 
+        </script>
+        <%- renderedScripts.styleTags %>
+        <%- renderedScripts.scriptTags %>
+        
+    </body>
+    <!-- <link rel="stylesheet" href="https://assets.gaadi.com/production/css/main-0a60c324.css" /> -->
+</html>
