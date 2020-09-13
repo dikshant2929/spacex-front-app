@@ -108,4 +108,5 @@ app.get('*', (req, res) => {
         });
 });
 
-app.listen(9000, () => console.log('Server started http://localhost:9000'));
+const PORT  = process.env.PORT || 9000;
+app.listen(PORT, () => console.log(`Server started http://localhost:${PORT}`));
