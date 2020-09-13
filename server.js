@@ -16,7 +16,8 @@ app.use(express.static(path.join(__dirname, 'dist')));
 
 if (process.env.NODE_ENV == 'dev') {
     console.log(
-        '=============================',' environment============================='
+        '=============================',
+        ' environment============================='
     );
     const config = require('./webpack.development');
     const port = process.env.PORT || 9000;
