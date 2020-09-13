@@ -5,7 +5,7 @@ import Header from '../index';
 describe('<Header />', () => {
     it('render title', async () => {
         const title = 'Company Name';
-        render(<Header title={title}/>);
+        render(<Header title={title} />);
         screen.getByText(title);
     });
-})
+});

@@ -14,6 +14,33 @@ const app = express();
 
 app.use(express.static(path.join(__dirname, 'dist')));
 
+if (process.env.NODE_ENV == 'dev') {
+    console.log(
+        '=============================',
+        ' environment============================='
+    );
+    const config = require('./webpack.development');
+    const port = process.env.PORT || 9000;
+    let webpack, webpackMiddleware, webpackCompiler;
+    webpack = require('webpack');
+    webpackMiddleware = require('webpack-dev-middleware');
+    webpackCompiler = webpack(config);
+
+    app.use(
+        webpackMiddleware(webpackCompiler, {
+            publicPath: '/js-dev/',
+            hot: true,
+            stats: {
+                colors: true,
+            },
+            watchOptions: {
+                aggregateTimeout: 300,
+                poll: true,
+            },
+        })
+    );
+    app.use(require('webpack-hot-middleware')(webpackCompiler));
+}
 class DataProvider extends Component {
     getChildContext() {
         return { data: this.props.data };
@@ -103,5 +130,5 @@ app.get('*', (req, res) => {
         });
 });
 
-const PORT  = process.env.PORT || 9000;
+const PORT = process.env.PORT || 9000;
 app.listen(PORT, () => console.log(`Server started http://localhost:${PORT}`));

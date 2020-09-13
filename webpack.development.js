@@ -7,6 +7,7 @@ const ManifestPlugin = require('webpack-manifest-plugin');
 const LoadablePlugin = require('@loadable/webpack-plugin');
 const OptimizeJsPlugin = require('optimize-js-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
+//const LoadablePlugin = require('loadable/webpack-plugin');
 
 const bundleDir = 'bundle';
 
@@ -32,7 +33,7 @@ const useCacheBabel = [
     },
     {
         loader: 'babel-loader',
-        options: babelConfig,
+        //options: babelConfig,
     },
 ];
 
@@ -72,6 +73,7 @@ module.exports = {
         chunkFilename: `[name].chunk.js`,
     },
     plugins: [
+        new LoadablePlugin(),
         new webpack.EnvironmentPlugin(['NODE_ENV']),
         new webpack.optimize.OccurrenceOrderPlugin(),
         new webpack.HotModuleReplacementPlugin(),

@@ -3,7 +3,6 @@ import { render, screen } from '@testing-library/react';
 import FilterWidget from '../FilterWidget';
 
 describe('<FilterWidget />', () => {
-    
     it('render year filter', async () => {
         const rawData = {
             title: 'Launch Year',
@@ -15,14 +14,14 @@ describe('<FilterWidget />', () => {
                 {
                     key: 2007,
                     value: 2007,
-                }
+                },
             ],
-        }
+        };
         const filterSelection = {
-            key : 'launch_year',
-            value : 2007
-        }
-        render(<FilterWidget {...rawData} filterSelection={filterSelection}/>);
+            key: 'launch_year',
+            value: 2007,
+        };
+        render(<FilterWidget {...rawData} filterSelection={filterSelection} />);
         screen.getByText(rawData.title);
     });
 
@@ -40,12 +39,12 @@ describe('<FilterWidget />', () => {
                 },
             ],
             key: 'launch_success',
-        }
+        };
         const filterSelection = {
-            key : rawData.key,
-            value : true
-        }
-        render(<FilterWidget {...rawData} filterSelection={filterSelection}/>);
+            key: rawData.key,
+            value: true,
+        };
+        render(<FilterWidget {...rawData} filterSelection={filterSelection} />);
         screen.getByText(rawData.title);
     });
-})
+});

@@ -21,8 +21,8 @@ module.exports = api => {
                     //targets: !web ? { node: 'current' } : undefined,
                     modules: webpack ? false : 'commonjs',
                     targets: {
-                        browsers: ['>1%', 'ie 11', 'not op_mini all']
-                    }
+                        browsers: ['>1%', 'ie 11', 'not op_mini all'],
+                    },
                 },
             ],
         ],

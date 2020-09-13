@@ -8,7 +8,7 @@
     },
     "scripts": {
         "test": "node script/test.js",
-        "build": "gulp && cross-env NODE_ENV=production node_modules/.bin/webpack --config=webpack.production.js --mode=production -p",
+        "build": "npm run format && gulp && cross-env NODE_ENV=production node_modules/.bin/webpack --config=webpack.production.js --mode=production -p",
         "start": "cross-env NODE_ENV=development node_modules/.bin/babel-node server.js",
         "dev": "cross-env NODE_ENV=dev node_modules/.bin/babel-node server.js",
         "lint": "eslint src/**/*.js",
